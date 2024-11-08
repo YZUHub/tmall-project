@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "tmall-project"
+version = "0.1.0"
+description = ""
+authors = ["rifatrakib <Rakib.1508@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = {extras = ["tabulate"], version = "^2.2.3"}
+seaborn = "^0.13.2"
+scikit-learn = "^1.5.2"
+lightgbm = "^4.5.0"
+tabulate = "^0.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0.1"
+black = "^24.10.0"
+isort = "^5.13.2"
+flake8 = "^7.1.1"
+ruff = "^0.7.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
