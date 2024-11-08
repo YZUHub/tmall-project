@@ -1,5 +1,5 @@
 name: Project Validation Metrics
-run-name: ${{ env.RUN_DATE }} - Metrics for ${{ github.actor }}'s Project submission
+run-name: ${{ github.event.repository.updated_at}} - Metrics for ${{ github.actor }}'s Project submission
 
 on:
   pull_request:
