@@ -10,18 +10,10 @@ permissions:
   contents: write
   pull-requests: write
 
-env:
-  # Set the date in the environment variable at the start
-  RUN_DATE: ${{ steps.set_date.outputs.run_date }}
-
 jobs:
-  run-metrics:
+  evaluate-metrics:
     runs-on: ubuntu-latest
     steps:
-      - name: Set date
-        id: set_date
-        run: echo "run_date=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
-
       - name: Checkout code
         uses: actions/checkout@v3
 
