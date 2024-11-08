@@ -1,0 +1,37 @@
+name: Display Metrics Table in Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas tabulate
+
+      - name: Run metrics script and capture output
+        id: metrics
+        run: |
+          output=$(python main.py)
+          echo "$output"  # Print the output for debugging
+          echo "::set-output name=table::$output"
+        shell: bash
+
+      - name: Post metrics as comment on PR
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: "${{ steps.metrics.outputs.table }}"
