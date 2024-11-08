@@ -29,13 +29,19 @@ jobs:
         id: metrics
         run: |
           output=$(python main.py)
-          echo "$output"  # Print the output for debugging
-          echo "::set-output name=table::$output"
-        shell: bash
+          echo "$output" > table_output.txt
+
+      - name: Read table output
+        id: read_table
+        run: |
+          table_content=$(cat table_output.txt)
+          echo "TABLE_CONTENT<<EOF" >> $GITHUB_ENV
+          echo "$table_content" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Post metrics as comment on PR
         uses: peter-evans/create-or-update-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
-          body: "${{ steps.metrics.outputs.table }}"
+          body: "${{ env.TABLE_CONTENT }}"

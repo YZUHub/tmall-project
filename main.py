@@ -12,7 +12,7 @@ table_data = []
 for metric, info in metrics.items():
     threshold = info["threshold"]
     value = info["value"]
-    status = "✔️" if value >= threshold else "❌"
+    status = "❌" if value <= threshold else "✔️"
     table_data.append([metric, threshold, value, status])
 
 # Create a DataFrame and convert it to Markdown table format
