@@ -1,8 +1,8 @@
 name: Project Validation Metrics
-run-name: ${{ github.actor }}'s submitted project at ${{ github.event.repository.updated_at}}
+run-name: Metrics evalation for ${{ github.actor }}'s models at ${{ github.event.repository.updated_at}}
 
 on:
-  push:
+  pull_request:
     branches:
       - main
       - submit-* # Branches that start with submit- are created for each student to submit the final version of their project
