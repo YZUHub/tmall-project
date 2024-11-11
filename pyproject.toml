@@ -54,10 +54,8 @@ line-length = 140
 exclude = [".git", "__pycache__", "dist"]
 target-version = "py39"
 # Allow unused variables when underscore-prefixed.
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-
-[tool.ruff.mccabe]
-max-complexity = 10
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+lint.mccabe.max-complexity = 10
 
 [build-system]
 requires = ["poetry-core"]
