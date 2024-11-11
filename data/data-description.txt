@@ -1,0 +1,7 @@
+1. test_format1.csv contains the data of users and merchants to be predicted.
+2. train_format2.csv contains the labeled training data.
+3. user_info_format1.csv contains basic user information.
+4. user_log_format1.csv contains the complete set of user behavior data (over 50 million records).
+5. user_log_format2.csv contains a reduced set of user behavior data (about 4 million records).
+
+Note: If your computer configuration cannot handle the complete dataset, use user_log_format2.csv instead of user_log_format1.csv.
