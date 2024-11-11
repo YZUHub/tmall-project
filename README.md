@@ -41,6 +41,10 @@ You can create any number of modules you want inside the workflow directory. **R
 
 You can do your experiments using `Jupyter Notebooks`. In that case, please save your notebooks inside the `notebooks` directory.
 
+## Guidelines about data
+
+**Please store the train and test datasets inside the `data` directory, commit them, and push to GitHub**. If you face any issues, please contact [Md Abdur Rakib](mailto:MH24108@stu.yzu.edu.cn) or text me via WeChat.
+
 ## How to install new dependencies
 
 Please use the following command to install a new package:
