@@ -25,6 +25,7 @@ Then create and activate your virtual environment depending on the OS and termin
 ```
 pip install poetry
 poetry install
+pre-commit install
 ```
 
 This will setup the working directory with necessary packages installed in your python virtual environment.
