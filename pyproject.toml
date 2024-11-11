@@ -12,6 +12,8 @@ seaborn = "^0.13.2"
 scikit-learn = "^1.5.2"
 lightgbm = "^4.5.0"
 tabulate = "^0.9.0"
+jupyterlab = "^4.3.0"
+typer = "^0.13.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.0.1"
@@ -19,6 +21,41 @@ black = "^24.10.0"
 isort = "^5.13.2"
 flake8 = "^7.1.1"
 ruff = "^0.7.2"
+
+[tool.black]
+line-length = 140
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+| \.hg
+| \.mypy_cache
+| \.tox
+| \.venv
+| _build
+| buck-out
+| build
+)/
+'''
+
+[tool.flake8]
+max-line-length = 140
+exclude = [".git", "__pycache__", "dist"]
+max-complexity = 10
+
+[tool.isort]
+atomic = true
+profile = "black"
+line_length = 140
+skip_gitignore = true
+
+[tool.ruff]
+line-length = 140
+exclude = [".git", "__pycache__", "dist"]
+target-version = "py39"
+# Allow unused variables when underscore-prefixed.
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+lint.mccabe.max-complexity = 10
 
 [build-system]
 requires = ["poetry-core"]
