@@ -42,10 +42,6 @@ def validate_model(X_test=None, y_test=None):
     f1 = f1_score(y_test, y_pred)
     roc_auc = roc_auc_score(y_test, y_pred_proba)
 
-    print("LGBMClassifier Accuracy:", accuracy)
-    print("LGBMClassifier F1 Score:", f1)
-    print("LGBMClassifier AUC Score:", roc_auc)
-
     return {
         "accuracy": accuracy,
         "f1": f1,

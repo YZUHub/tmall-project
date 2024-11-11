@@ -33,7 +33,7 @@ jobs:
       - name: Run metrics script and capture output
         id: metrics
         run: |
-          output=$(python main.py)
+          output=$(python manage.py verify)
           echo "$output" > table_output.txt
 
       - name: Read table output
