@@ -1,6 +1,10 @@
 import pandas as pd
 
 
+def new_function():
+    pass
+
+
 def check_metrics(metrics):
     # Define metrics and thresholds
     metrics = {
