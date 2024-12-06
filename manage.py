@@ -1,27 +1,23 @@
-from typer import Typer
+#!/usr/bin/env python
+"""Command-line utility using Typer for the tmall-project."""
+import typer
 
-from utils import check_metrics
-from workflow import train_model, validate_model
+app = typer.Typer()
 
-app = Typer()
+@app.command()
+def run():
+    """Run the main script."""
+    typer.echo("Running the main script...")
 
+@app.command()
+def hello(name: str):
+    """Say hello to a user."""
+    typer.echo(f"Hello, {name}!")
 
-@app.command(name="train")
-def train():
-    """Train the model."""
-    print("Training the model.")
-    metrics = train_model()
-    print("## Model Verification Report")
-    print(check_metrics(metrics))
-
-
-@app.command(name="verify")
-def verify():
-    """Verify project submissions."""
-    metrics = validate_model()
-    print("## Model Verification Report")
-    print(check_metrics(metrics))
-
+@app.command()
+def version():
+    """Display the project version."""
+    typer.echo("tmall-project version 1.0.0")
 
 if __name__ == "__main__":
     app()
