@@ -10,7 +10,7 @@ app = Typer()
 def train():
     """Train the model."""
     print("Training the model.")
-    metrics = train_model()
+    metrics = model_trainer()
     print("## Model Verification Report")
     print(check_metrics(metrics))
 
@@ -18,7 +18,7 @@ def train():
 @app.command(name="verify")
 def verify():
     """Verify project submissions."""
-    metrics = validate_model()
+    metrics = model_validator()
     print("## Model Verification Report")
     print(check_metrics(metrics))
 
